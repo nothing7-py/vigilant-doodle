@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 350 100% 98%;
+    --foreground: 340 30% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 30% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 30% 25%;
+    --primary: 340 70% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 280 50% 92%;
+    --secondary-foreground: 280 30% 30%;
+    --muted: 340 30% 95%;
+    --muted-foreground: 340 15% 50%;
+    --accent: 280 60% 88%;
+    --accent-foreground: 280 30% 30%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 340 30% 90%;
+    --input: 340 30% 90%;
+    --ring: 340 70% 70%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-vi, sans-serif;
+  }
+
+  .font-serif {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+  .font-hand {
+    font-family: var(--font-caveat), cursive;
+  }
+}
+
+/* Lined paper effect*/
+.lined-paper { 
+  background-image:
+    Linear-gradient(to bottom, transparent 0, transparent 31px, #f3c9d6 31px, #f3c9d6 32px); 
+  background-size: 100% 32px;
+  background-position-y: 8px; 
+}
+
+/* floating hearts */
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+}
+.heart-float {
+  animation: floatUp linear infinite;
+}
+/* sparkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+.twinkle { animation: twinkle 3s ease-in-out infinite; }
+
+/* hide scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
